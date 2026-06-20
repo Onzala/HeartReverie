@@ -20,8 +20,15 @@ Use full-width punctuation marks for chinese, and use single-width punctuation m
 
 # SCENARIO
 <scenario>
+{{ if lore_scenario }}
+# STORY BACKGROUND
+{{ lore_scenario }}
+{{ /if }}
+
+{{ if lore_character }}
 # CHARACTER DESCRIPTION
 {{ lore_character }}
+{{ /if }}
 </scenario>
 
 <game_instructions>
@@ -62,3 +69,7 @@ In every response, ALWAYS extend your response to over 20 lines. Act as a comedi
 {{ /message }}
 
 {{ message "user" }}<user_intent>{{ user_input }}</user_intent>{{ /message }}
+
+{{ message "system" }}
+[System Prompt Reminder: You must respond ONLY in Traditional Chinese (正體中文 / 繁體中文). Absolutely no Simplified Chinese characters are allowed.]
+{{ /message }}
